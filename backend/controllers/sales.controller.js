@@ -32,8 +32,6 @@ exports.getSales = async (req, res) => {
 
 exports.getSaleDetails = async (req, res) => {
     try {
-      console.log("entered sales controller getSaleDetails");
-      
       const data = await salesService.getInvoiceDetails(
         req.params.id,
         req.user.role

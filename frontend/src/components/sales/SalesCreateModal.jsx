@@ -19,7 +19,6 @@ export default function SalesCreateModal({ onClose, onSuccess }) {
 
   const fetchProducts = async () => {
     const res = await api.get("/api/products");
-    console.log(res.data);
     
     setProducts(res.data);
   };
@@ -37,7 +36,6 @@ export default function SalesCreateModal({ onClose, onSuccess }) {
   };
 
   const handleItemChange = (index, field, value) => {
-    console.log("value: ", value);
     
     const updated = [...items];
 
@@ -46,13 +44,11 @@ export default function SalesCreateModal({ onClose, onSuccess }) {
     }
 
     updated[index][field] = value;
-    console.log(updated);
     
     if (field === "product_id") {
       const selected = products.find(
         p => p.id === value
       );
-      console.log(selected);
       
       updated[index].price = selected?.sellingPrice || 0;
     }

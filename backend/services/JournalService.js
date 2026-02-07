@@ -11,8 +11,6 @@ class JournalService {
 
     try {
 
-      console.log("data: ", data);
-      
       const { date, narration, entries } = data;
 
       const totalDebit = entries.reduce(

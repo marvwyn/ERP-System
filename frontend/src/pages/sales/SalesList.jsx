@@ -23,7 +23,6 @@ import {
     const [showCreateModal, setShowCreateModal] = useState(false);
     const { user } = useContext(AuthContext);
     const [selectedSale, setSelectedSale] = useState(null);
-    const navigate = useNavigate();
     const [pagination, setPagination] = useState({
         pageIndex: 0,
         pageSize: 10,
@@ -51,7 +50,6 @@ import {
           const res = await api.get(
             `/api/sales?from=${fromDate}&to=${toDate}`
           );
-          console.log(res.data);
           
           setSales(res.data);
         } catch (err) {

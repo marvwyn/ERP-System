@@ -25,7 +25,6 @@ export default function ProductCreateModal({ onClose, onSuccess }) {
 
   const fetchExistingProducts = async () => {
     const res = await api.get("/api/products");
-    console.log(res.data);
     setExistingItemIds(res.data.map(p => p.itemId));
   };
 
@@ -48,7 +47,6 @@ export default function ProductCreateModal({ onClose, onSuccess }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("existing item ids: ",form);
     if (existingItemIds.includes(form.itemId)) {
       alert("Item Code already exists!");
       return;

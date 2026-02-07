@@ -155,12 +155,9 @@ class SalesService {
     
     const sales = await Sale.find(filter).sort({ createdAt: -1 });
     
-
-    const oneSale = await Sale.findOne();
-    
     if (role === "employee") {
       return sales.map(s => ({
-        id: s._id,
+        _id: s._id,
         createdAt: s.createdAt,
         invoiceNo: s.invoiceNo,
         date: s.date,
@@ -179,7 +176,6 @@ class SalesService {
     if (!sale) throw new Error("Invoice not found");
 
     const items = sale.items || [];
-    console.log("enteredn getInvoiceDetails: ",items);
 
     const grossProfit = items.reduce(
       (sum, item) => sum + Number(item.profit || 0),
@@ -200,7 +196,6 @@ class SalesService {
         }))
       };
     }
-    console.log("grossProfit: ",grossProfit);
     
     return {
       invoice: {

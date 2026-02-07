@@ -12,7 +12,6 @@ export default function SalesDetailsModal({ saleId, onClose }) {
 
   const fetchInvoice = async () => {
     const res = await api.get(`/api/sales/${saleId}`);
-    console.log(res.data);
     
     setData(res.data);
   };

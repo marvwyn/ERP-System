@@ -22,7 +22,6 @@ export default function LedgerReport() {
     const res = await api.get(
       `/api/ledger?account=${account}&from=${fromDate}&to=${toDate}`
     );
-    console.log(res.data);
     setLedgerData(res.data);
     setLoading(false);
   };
